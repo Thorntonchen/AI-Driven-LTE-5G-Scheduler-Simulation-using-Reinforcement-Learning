@@ -27,7 +27,7 @@ The trained agent demonstrates intelligent and adaptive behavior. After training
 
 The agent learns to switch to a Downlink-heavy TDD pattern (ID 5/6) during periods of high DL congestion, and then switches back to a more balanced pattern once the load is cleared.
 
-![Performance Plot](results/advanced_policy_analysis.png)
+![Performance Plot](results/packet_driven_performace.png)
 *(This plot shows the agent's TDD choice (green) adapting to the total system load (blue/red areas).)*
 
 ---
