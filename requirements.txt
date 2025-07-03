@@ -1,0 +1,11 @@
+# Core Libraries for Machine Learning and Data Handling
+numpy
+torch
+stable-baselines3[extra]>=2.0.0
+gymnasium
+
+# High-Performance Computing Library
+numba
+
+# Plotting and Visualization
+matplotlib
