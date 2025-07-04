@@ -1,6 +1,21 @@
 # AI-Driven 5G Scheduler: A Reinforcement Learning Approach for Robust Resource Management
 
-This project presents a high-fidelity, packet-driven discrete-event simulator for an LTE/5G cell. It includes a unified Reinforcement Learning agent, trained using Proximal Policy Optimization (PPO), that learns to perform two critical tasks simultaneously:
+## Overview
+
+This project demonstrates a sophisticated, **AI-driven scheduling pipeline for 5G/NR networks, designed in alignment with the O-RAN (Open RAN) architecture.** The system is built within a high-fidelity, packet-driven simulation environment and showcases an end-to-end, intelligent control loop.
+
+The pipeline consists of two main components, mirroring the Non-RT and Near-RT RIC paradigm:
+
+#### 1. Non-Real-Time RIC Component (`rApp` Functionality)
+*   A pre-trained **LSTM-based model** acts as an *rApp* to perform predictive QoS classification. It analyzes application streams over a longer timescale ( 10 seconds as one segment) to dynamically assign the correct QFI (Quality of Service Flow Identifier) policy to user traffic.
+
+#### 2. Near-Real-Time RIC Component (`xApp` Functionality)
+*   A unified **Reinforcement Learning agent (PPO)** functions as an *xApp*. This agent ingests the QoS policies from the `rApp` along with real-time network state (buffer sizes, CQI reports) to perform two coordinated, sub-second optimization tasks:
+    1.  **Dynamic TDD Frame Configuration:** It strategically selects the optimal TDD pattern to manage traffic imbalances.
+    2.  **Per-TTI User Scheduling:** It executes millisecond-level scheduling to maximize throughput while respecting the predicted QoS policies from the `rApp`.
+
+My simulations show that this closed-loop, two-layer AI system dramatically outperforms traditional, rule-based schedulers, especially in challenging network conditions. This repository contains the complete `xApp` (PPO agent) and the simulation environment used to validate its performance
+
 
 1.  **Strategic TDD Pattern Selection:** The agent acts as a "manager," dynamically selecting the optimal TDD (Time-Division Duplex) configuration based on real-time traffic load to balance uplink and downlink capacity.
 2.  **Real-Time UE Scheduling:** The agent acts as a "worker," scheduling user equipment (UEs) on a TTI-by-TTI basis to maximize throughput while ensuring Quality of Service (QoS) by minimizing latency.
