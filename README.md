@@ -65,7 +65,42 @@ The final plot provides the clearest summary of the AI's advantage. The "Ideal R
 
 **Conclusion:** The AI has not just learned to schedule; it has learned to **manage the system holistically**. It has discovered a policy that is more proactive, stable, and delivers a significantly better user experience than a traditional greedy algorithm.
 
+## Performance Benchmark: AI vs. Proportional Fair Scheduler
 
+To validate the performance of the trained AI agent, a rigorous head-to-head comparison was conducted against a strong, industry-standard baseline: a **Proportional Fair (PF) Scheduler**. The PF scheduler is designed to balance throughput efficiency with user fairness. Both systems were subjected to the exact same live network traffic data to ensure a fair and demanding comparison.
+
+The results are conclusive: **The AI agent has learned a significantly superior policy, dramatically outperforming the traditional PF scheduler in congestion management, cell efficiency, and Quality of Service, while maintaining competitive throughput.**
+
+![Scheduler Performance Comparison vs PF](results/scheduler_comparison_stable_tht.png) 
+
+### Key Findings from the Analysis:
+
+#### 1. Revolutionary Improvement in Congestion Control (Panel 2)
+This is the most critical finding.
+*   **The Traditional PF Scheduler (Dashed Orange Line):** The PF scheduler is unable to handle the traffic load. Its Downlink buffer grows uncontrollably, exceeding **100,000 KB (100 MB)**. This represents a catastrophic failure in queue management, which would lead to unacceptable multi-second latencies for users.
+*   **The AI Agent (Solid Orange Line):** The AI agent keeps the DL buffer **perfectly flat and near-zero** throughout the entire simulation. It has learned a proactive congestion avoidance strategy that the reactive PF algorithm cannot match.
+
+#### 2. Drastically Increased Cell Efficiency (Panel 3)
+The buffer performance directly impacts cell stability.
+*   **The Traditional Scheduler (Magenta Line):** The number of concurrently active UEs climbs steadily to over **250**, indicating a saturated and heavily congested cell.
+*   **The AI Agent (Green Line):** The AI keeps the number of active users in a stable, controlled range, typically **below 50**. By clearing user data efficiently, the AI runs a much "leaner" and more responsive cell.
+
+#### 3. Intelligent and Proactive TDD Strategy (Panel 4)
+Here we see *why* the AI is so much better.
+*   **The Traditional Scheduler (Dashed Orange Line):** Its simple rule forces it to lock onto the DL-heavy Pattern 5 and stay there, as the DL buffer is always high. It cannot adapt.
+*   **The AI Agent (Solid Purple Line):** The AI demonstrates a far more sophisticated strategy. It uses the DL-heavy Pattern 5, but it also intelligently injects periods of the balanced Pattern 2. It has learned that it can briefly switch to serve other traffic without compromising its control over the main DL congestion. This proactive, nuanced behavior is something a simple rule cannot achieve.
+
+#### 4. The System Efficiency Profile (Panel 6)
+This scatter plot provides the final, undeniable proof.
+*   **The Traditional Scheduler (Red Dots):** Operates in a terrible state of low throughput and extremely high buffer/congestion.
+*   **The AI Agent (Blue Dots):** Operates exclusively in the **"Ideal Region"** of high throughput and near-zero buffer/congestion.
+*   **The AI Efficiency score of +51190.2% better** is a quantitative measure of this vast difference in operating states. It means the AI is not just a little better; it is operating in a completely different, vastly superior performance paradigm.
+
+### Final Conclusion
+
+The AI agent has not merely learned to schedule packets. It has learned a holistic **resource management policy** that outperforms a strong, traditional baseline on every critical metric related to Quality of Service and system stability. It successfully balances TDD configuration with per-user scheduling to prevent congestion before it occurs, a feat the reactive Proportional Fair scheduler was unable to accomplish.
+
+This demonstrates the immense potential of Reinforcement Learning to create autonomous, highly adaptive components for next-generation 5G and O-RAN networks.
 ---
 
 ## Getting Started
