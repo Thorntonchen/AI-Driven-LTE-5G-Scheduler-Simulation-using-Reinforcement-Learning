@@ -30,7 +30,7 @@ The agent learns to switch to a Downlink-heavy TDD pattern (ID 5/6) during perio
 ![Performance Plot](results/packet_driven_performace.png)
 *(This plot shows the agent's TDD choice (green) adapting to the total system load (blue/red areas).)*
 
-## Performance Benchmark: AI vs. Traditional Schedulers
+## Performance Benchmark: AI vs. Traditional Schedulers (good radio coverage)
 
 To validate the performance of the trained AI agent, a rigorous head-to-head comparison was conducted against a standard, industry-recognized baseline: a **Max-CQI (Greedy) Scheduler**. Both systems were subjected to the exact same live network traffic data to ensure a fair comparison.
 
@@ -65,7 +65,7 @@ The final plot provides the clearest summary of the AI's advantage. The "Ideal R
 
 **Conclusion:** The AI has not just learned to schedule; it has learned to **manage the system holistically**. It has discovered a policy that is more proactive, stable, and delivers a significantly better user experience than a traditional greedy algorithm.
 
-## Performance Benchmark: AI vs. Max-CQI (Greedy) Scheduler
+## Performance Benchmark: AI vs. Max-CQI (Greedy) Scheduler (poor radio coverage)
 
 ![AI vs Traditional Scheduler Performance](results/scheduler_comparison_poorRadio_mean12_std4_max_q.png)
 
