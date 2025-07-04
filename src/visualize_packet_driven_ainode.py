@@ -16,7 +16,7 @@ import os
 from stable_baselines3 import PPO
 
 # --- Import from your final training script ---
-from train_packet_driven_v1_6_1_wrapper import (
+from train_packet_driven_ainode import (
     LtePacketDrivenEnv, FlattenActionWrapper, TDD_PATTERNS, TDD_ACTION_MAP,
     CQI_MIMO_TABLE, REWARD_CONFIG
 )
