@@ -30,6 +30,42 @@ The agent learns to switch to a Downlink-heavy TDD pattern (ID 5/6) during perio
 ![Performance Plot](results/packet_driven_performace.png)
 *(This plot shows the agent's TDD choice (green) adapting to the total system load (blue/red areas).)*
 
+## Performance Benchmark: AI vs. Traditional Schedulers
+
+To validate the performance of the trained AI agent, a rigorous head-to-head comparison was conducted against a standard, industry-recognized baseline: a **Max-CQI (Greedy) Scheduler**. Both systems were subjected to the exact same live network traffic data to ensure a fair comparison.
+
+The results are conclusive: **The AI agent dramatically outperforms the traditional, rule-based scheduler, particularly in managing network congestion and providing a superior Quality of Service.**
+
+![Scheduler Performance Comparison](results/scheduler_comparison_maxQ.png) 
+
+
+### Key Findings from the Analysis:
+
+#### 1. Overwhelmingly Superior Congestion Control
+*   **The AI Agent (Solid Lines):** As seen in the "Buffer Occupancy" panel, the AI keeps the total data waiting in the Downlink buffer consistently near-zero. It runs a clean, responsive, and uncongested cell.
+*   **The Traditional Scheduler (Dashed Lines):** The Max-CQI scheduler allows the DL buffer to spike frequently, indicating periods of high congestion and poor latency for users. At its peak, the traditional scheduler's buffer is more than **10 times larger** than the AI's.
+
+#### 2. Increased Cell Stability and Efficiency
+*   **The AI Agent (Green Line):** The "Active UEs" panel shows that the AI maintains a low and stable number of concurrent users, efficiently serving them and freeing up network resources.
+*   **The Traditional Scheduler (Magenta Line):** The traditional scheduler has a much higher and more erratic number of active UEs, a direct symptom of its inability to clear buffers efficiently.
+
+#### 3. Comparable Throughput with Vastly Better QoS
+*   While both schedulers achieve similar peak throughputs (Panel 1), the AI agent accomplishes this **while keeping the network stable and latency low.** This demonstrates a more sophisticated policy that balances efficiency with service quality.
+
+#### 4. Intelligent and Proactive TDD Strategy
+*   **The AI Agent (Purple Line):** The "TDD Pattern Selection" plot shows the AI making dynamic, intelligent choices. It doesn't just stick to one pattern; it adapts its strategy over time.
+*   **The Traditional Scheduler (Orange Dashed Line):** The baseline follows a simpler, reactive rule, which proves to be less effective at preventing buffer buildup.
+
+### The System Efficiency Profile
+
+The final plot provides the clearest summary of the AI's advantage. The "Ideal Region" represents a state of high throughput combined with low network congestion.
+
+*   The **AI Agent's** operational points (blue dots) are clustered tightly within this ideal, low-buffer region.
+*   The **Traditional Scheduler's** operational points (red dots) are scattered in a high-buffer, inefficient state.
+
+**Conclusion:** The AI has not just learned to schedule; it has learned to **manage the system holistically**. It has discovered a policy that is more proactive, stable, and delivers a significantly better user experience than a traditional greedy algorithm.
+
+
 ---
 
 ## Getting Started
