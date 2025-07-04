@@ -1,4 +1,4 @@
-# AI-Driven LTE/5G Scheduler Simulation using Reinforcement Learning
+# AI-Driven 5G Scheduler: A Reinforcement Learning Approach for Robust Resource Management
 
 This project presents a high-fidelity, packet-driven discrete-event simulator for an LTE/5G cell. It includes a unified Reinforcement Learning agent, trained using Proximal Policy Optimization (PPO), that learns to perform two critical tasks simultaneously:
 
