@@ -65,6 +65,41 @@ The final plot provides the clearest summary of the AI's advantage. The "Ideal R
 
 **Conclusion:** The AI has not just learned to schedule; it has learned to **manage the system holistically**. It has discovered a policy that is more proactive, stable, and delivers a significantly better user experience than a traditional greedy algorithm.
 
+## Performance Benchmark: AI vs. Max-CQI (Greedy) Scheduler
+
+![AI vs Traditional Scheduler Performance](results/scheduler_comparison_poorRadio_mean12_std4_max_q.png)
+
+To validate the agent's learned policy, a rigorous head-to-head comparison was conducted in a simulated **challenging radio environment** (modeled with a mean SINR of 12dB and a standard deviation of 4). This "high-variance" scenario represents a realistic urban deployment with a mix of users in good and poor coverage.
+
+The AI agent was benchmarked against a standard **Max-CQI (Greedy) Scheduler**, which always prioritizes the user with the best current channel quality to maximize immediate data rate. Both systems were subjected to the exact same live network traffic data.
+
+**The results are definitive: The AI agent learns a vastly superior policy, matching the throughput efficiency of the greedy scheduler while simultaneously preventing the catastrophic network congestion that the traditional algorithm causes.**
+
+### Key Findings from the Analysis:
+
+#### 1. The AI Matches Greedy Efficiency While Ensuring Stability (Panel 1 & 2)
+*   The AI agent (blue dashed line) achieves a **peak throughput that is comparable** to the purely greedy Max-CQI scheduler (red dashed line). It has successfully learned how to be efficient.
+*   However, the "Buffer Occupancy" plot tells the real story. The Max-CQI scheduler allows network buffers to **explode to over 100,000 KB**, as it starves users with lower CQI. The AI agent, by contrast, keeps the buffer **consistently low and stable**, proving it has learned to balance efficiency with fairness.
+
+#### 2. The AI Runs a Healthier, Uncongested Cell (Panel 3)
+*   The consequence of the Max-CQI scheduler's greed is a massively congested cell, with the number of waiting users climbing to **over 250**.
+*   The AI agent maintains the number of active users in a **low, controlled band (under 50)**, demonstrating a much more stable and efficient system.
+
+#### 3. The AI Learns a More Nuanced TDD Strategy (Panel 4)
+*   The Traditional TDD selector locks into a single DL-heavy pattern, unable to adapt.
+*   The AI agent demonstrates a more dynamic policy, intelligently switching between different TDD patterns to proactively manage both UL and DL queues, contributing to its superior stability.
+
+#### 4. The System Efficiency Profile: A Clear Verdict (Panel 6)
+This plot visualizes the operational state of both schedulers. The "Ideal Region" represents the desirable state of achieving high throughput while maintaining low network congestion.
+*   **The AI Agent (Blue Dots):** Operates almost exclusively within the Ideal Region.
+*   **The Traditional Scheduler (Red Dots):** Operates in a high-congestion, inefficient state.
+*   **The quantitative result (`AI Efficiency: +535.5% better`)** confirms the AI's ability to create a dramatically more effective and stable network environment.
+
+### Final Conclusion
+
+This project successfully demonstrates that a Reinforcement Learning agent can learn a sophisticated resource management policy that is superior to traditional, hand-crafted algorithms. The agent solved the classic **"Greed vs. Fairness" dilemma** on its own: it learned to be as efficient as a greedy scheduler when possible, but also learned to be fair when necessary to prevent system-wide congestion collapse.
+
+
 ## Performance Benchmark: AI vs. Proportional Fair Scheduler
 
 To validate the performance of the trained AI agent, a rigorous head-to-head comparison was conducted against a strong, industry-standard baseline: a **Proportional Fair (PF) Scheduler**. The PF scheduler is designed to balance throughput efficiency with user fairness. Both systems were subjected to the exact same live network traffic data to ensure a fair and demanding comparison.
